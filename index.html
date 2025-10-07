@@ -16,6 +16,36 @@
             scroll-behavior: smooth;
         }
 
+        /* SPLASH SCREEN */
+        #splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #4da6d8;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4em;
+            z-index: 9999;
+            transition: opacity 0.8s ease;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #splash.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #splash small {
+            margin-top: 10px;
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+
         /* Sidebar kiri */
         .sidebar {
             width: 280px;
@@ -221,6 +251,13 @@
 </head>
 
 <body>
+    <!-- SPLASH SCREEN -->
+    <div id="splash">
+        <div>
+            <strong>Welcome!</strong><br>
+            <small>Use desktop for best experience 💻</small>
+        </div>
+    </div>
 
     <div class="sidebar">
         <img src="assets/img/foto1.jpg" class="gambar" alt="Foto Profil">
@@ -288,8 +325,8 @@ ORA ATEK GAMBAR
 -->
             <div class="portfolio-item">
                 <div>
-                    <h3><a href="assets/article/article6.png"
-                            target="_blank">Enterprise Resource Planning System Perumda Delta Tirta</a></h3>
+                    <h3><a href="assets/article/article6.png" target="_blank">Enterprise Resource Planning System
+                            Perumda Delta Tirta</a></h3>
                     <p>
                         Portfolio Type: Website |
                         Development Period: October 2020 – Currently still being improved and expanded |
@@ -495,6 +532,16 @@ ORA ATEK GAMBAR
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
         }
+    </script>
+    <!-- Script Splash -->
+    <script>
+        window.addEventListener('load', function () {
+            const splash = document.getElementById('splash');
+            setTimeout(() => {
+                splash.classList.add('fade-out');
+                setTimeout(() => splash.style.display = 'none', 800);
+            }, 1000);
+        });
     </script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
